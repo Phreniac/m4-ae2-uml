@@ -1,0 +1,8 @@
+{
+    "persona":{
+        "nombre": "Jorge Gonzales",
+        "direccion": "Av. falsa 122",
+        "email": "jg@gmail.com",
+        "mascotas": [{"nombre":"Boby", "tipo_mascota": "Perro"},{"nombre":"Alejandro", "tipo_mascota": "Gato"}]
+    }  
+}

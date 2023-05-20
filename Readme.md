@@ -147,3 +147,122 @@ class Empleado extends Persona {
 }
 ```
 En este ejemplo, se ha creado la clase Empleado que extiende de la clase Persona. La clase Empleado hereda los atributos nombre y edad de la clase Persona utilizando la función super(). Además, se ha añadido el atributo salario específico de la clase Empleado y el método mostrarSalario().
+
+---
+
+## Estructura de carpetas
+## JSON
+JSON (JavaScript Object Notation) es un formato de intercambio de datos ligero y legible para humanos y máquinas. Se basa en la sintaxis de los objetos y arrays de JavaScript, lo que lo hace fácil de entender y utilizar en muchos lenguajes de programación.
+
+Se utiliza comúnmente para transmitir y almacenar datos estructurados. Es ampliamente utilizado en aplicaciones web y servicios web como un formato estándar para intercambiar datos entre el servidor y el cliente. También se utiliza en configuraciones de archivos y almacenamiento de datos en bases de datos NoSQL.
+
+La sintaxis básica de JSON consiste en pares de clave-valor que están separados por comas y encerrados entre llaves {} para objetos, o entre corchetes [] para arrays. Aquí hay un ejemplo de un objeto JSON que representa información de una persona:
+
+```
+{
+    "nombre": "Jorge",
+    "apellido": "Gonzales",
+    "edad": 35,
+    "ciudad": "Santiago"
+} 
+```
+
+## Babel
+  Babel es un popular compilador de JavaScript que te permite escribir código JavaScript moderno y convertirlo en una versión compatible que pueda ejecutarse en navegadores antiguos o en entornos que no admiten las últimas características de JavaScript. Permite a los desarrolladores utilizar la sintaxis más reciente, las características del lenguaje e incluso características experimentales, al tiempo que garantiza la compatibilidad con versiones anteriores.
+
+  El propósito principal de Babel es transformar tu código fuente de una versión de JavaScript a otra. Utiliza una arquitectura basada en complementos, donde cada complemento realiza una transformación específica o una conversión de sintaxis. Babel puede convertir características de las versiones más nuevas de ECMAScript (ES6, ES7, etc.) a versiones más antiguas (ES5) que son ampliamente compatibles.
+
+### Instalación de Dependencias
+
+Para el uso correcto de Babel es necesario instalar las dependencias que se necesitan, estas son babel-core, babel-loader, babel-preset-env.
+
+La instalación se hara con el siguiente comando: 
+> npm install core-js --save-dev babel-loader @babel/core @babel/preset-env 
+
+### Configuracion basica
+> Crea un archivo con el nombre ".babelrc" dentro del archivo escribe lo siguiente:
+
+```
+{
+    "presets": [["@babel/preset-env", {
+        "targets":{
+            "edge":"17",
+            "firefox": "60",
+            "chrome": "67",
+            "safari": "11.1",
+        },
+        "useBuiltIns": "usage",
+        "corejs": "3.30.2",
+        "forceAllTransforms": true
+    }]]
+}
+
+```
+*las versiones dependeran de las versiones actuales a las que quieres apuntar la configuración*
+
+## WEBPACK
+Webpack es una poderosa herramienta de empaquetado y construcción de módulos para aplicaciones web. Se utiliza para agrupar, transformar y optimizar los recursos de una aplicación, como archivos JavaScript, CSS, imágenes y otros assets, para que puedan ser entregados de manera eficiente al navegador.
+
+Webpack se basa en el concepto de módulos, lo que significa que puedes organizar tu código en diferentes archivos y dependencias, y luego utilizar Webpack para combinarlos en un único archivo de salida (o varios archivos si así lo configuras). Esto facilita el manejo de la complejidad de las aplicaciones web, ya que puedes dividir tu código en módulos más pequeños y mantener un flujo de trabajo más organizado.
+
+Además de su capacidad para empaquetar y combinar archivos, Webpack ofrece una amplia gama de características adicionales, como:
+
+Resolución de dependencias: Webpack puede analizar las dependencias entre módulos y construir un gráfico de dependencias para asegurarse de que los archivos necesarios se incluyan en el paquete final.
+
+Carga de recursos: Webpack es compatible con una variedad de loaders que te permiten cargar y transformar diferentes tipos de archivos, como JavaScript, CSS, imágenes, fuentes, archivos JSON, entre otros.
+
+Optimización: Webpack puede aplicar optimizaciones al código, como minimización, ofuscación y división de código, para reducir el tamaño del paquete resultante y mejorar el rendimiento de la aplicación.
+
+Integración con el ecosistema de desarrollo: Webpack se puede integrar fácilmente con otras herramientas y frameworks populares, como Babel, TypeScript, React, Vue.js, entre otros, lo que te permite aprovechar sus funcionalidades y optimizaciones en conjunto.
+
+En resumen, Webpack es una herramienta esencial para el desarrollo de aplicaciones web modernas. Te ayuda a gestionar y optimizar tus recursos, simplifica el manejo de dependencias y ofrece un flujo de trabajo eficiente para el desarrollo de proyectos frontend.
+
+### Instalación de dependecias
+> npm install webpack webpack-cli style-loader css-loader 
+
+### Configuracion basica
+
+```
+const path = require('path');
+
+module.exports = {
+    entry: './src/index.js',
+    output: {
+      path: path.resolve(__dirname, 'dist'),
+      filename: 'bundle.js',
+    },
+    module: {
+      rules: [
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use: 'babel-loader',
+        },
+      ],
+    },
+};
+```
+### Plugins y Rules
+
+> npm install html-webpack-plugin mini-css-extract-plugin
+
+Rules - CSS
+```
+  {
+    test: /\.css$/,
+    use: [MiniCssExtractPlugin.loader, 'css-loader'],
+  },  
+```
+Plugins  Generador de HTML Y CSS 
+```
+plugins: [
+      new HtmlWebpackPlugin({
+        template: './public/index.html',
+        filename: 'index.html',
+      }),
+      new MiniCssExtractPlugin  ({
+        filename: '[name].css',
+        chunkFilename: '[id].css',
+      }),
+    ],
+```

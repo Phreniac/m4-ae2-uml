@@ -1,0 +1,27 @@
+{
+  "name": "ae2",
+  "version": "1.0.0",
+  "description": "En esta clase, exploramos un concepto fundamental de JavaScript: El diagrama de clases. Aprenderemos cómo utilizar estos conceptos para representar la estructura y la organización de la información en JavaScript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production"
+  },
+  "keywords": [],
+  "author": "Phreniac",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.21.8",
+    "@babel/preset-env": "^7.21.5",
+    "babel-loader": "^9.1.2",
+    "core-js": "^3.30.2"
+  },
+  "dependencies": {
+    "css-loader": "^6.7.4",
+    "html-webpack-plugin": "^5.5.1",
+    "mini-css-extract-plugin": "^2.7.6",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.83.1",
+    "webpack-cli": "^5.1.1"
+  }
+}

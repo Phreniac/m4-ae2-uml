@@ -1,0 +1,6 @@
+/* archivos de estilo base */
+@import './_base.css';
+@import './_reset.css';
+
+/* archivos de estilo para vistas */
+@import './views/home.css';
